@@ -4,15 +4,20 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
+        unique: true,
+        lowercase:true,
+        index:true,
     },
     email: {
         type: String,
         required: true,
         unique: true,
+       lowercase:true,
+       trim:true,
     },
     password: {
         type: String,
-        required: true,
+        required: [true,"Password is required"]
     },
     role: {
         type: String,
@@ -22,7 +27,8 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         required: true,
-        default: false
+        default: false,
+        
     },
 }, { timestamps: true })
 const User = mongoose.model('User', userSchema);
