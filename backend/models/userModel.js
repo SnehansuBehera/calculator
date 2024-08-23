@@ -4,31 +4,28 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        unique: true,
-        lowercase:true,
-        index:true,
     },
     email: {
         type: String,
         required: true,
         unique: true,
-       lowercase:true,
-       trim:true,
+        lowercase: true,
+        trim: true,
     },
     password: {
         type: String,
-        required: [true,"Password is required"]
+        required: [true, "Password is required"]
     },
     role: {
         type: String,
-        enum: ['Manager', 'Boss', 'Lead', 'Frontend Dev', 'Backend Dev', 'DevOps Eng', 'UI/UX Dev', 'SDE', 'Intern'],
+        enum: ['Manager', 'Lead', 'Frontend Dev', 'Backend Dev', 'DevOps Eng', 'UI/UX Dev', 'SDE', 'Intern'],
 
     },
     isAdmin: {
         type: Boolean,
         required: true,
         default: false,
-        
+
     },
 }, { timestamps: true })
 const User = mongoose.model('User', userSchema);

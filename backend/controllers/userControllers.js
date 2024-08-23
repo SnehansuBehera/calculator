@@ -71,5 +71,16 @@ const logout = async (req, res) => {
     })
     res.status(201).send("User logged out");
 }
+const googleProvider = async (req, res) => {
+    const { id, name, picture, email } = req.body;
+    try {
+        const user = await User.findOneAndUpdate({ email: email }, { name, picture, googleId: id }, { upsert: true, new: true });
+        res.status(200).json(user);
 
-export { createUser, login, logout };
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to save user' });
+    }
+
+}
+
+export { createUser, login, logout, googleProvider };
