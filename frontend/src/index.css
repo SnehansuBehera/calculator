@@ -1,0 +1,49 @@
+.backdrop-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+  }
+  
+  .auth-modal {
+    z-index: 1050;
+  }
+  
+  .modal-backdrop {
+    z-index: 1049;
+  }
+  
+  .modal-body {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .auth-modal h4 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  /* Navbar Animation */
+  .animated-navbar {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .animated-navbar.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Sticky top ensures navbar stays fixed at the top */
+  .sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+  }
+  
